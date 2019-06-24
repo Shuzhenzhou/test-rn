@@ -1,24 +1,26 @@
 import React ,{Component} from 'react';
-import {Animated, Text,View} from 'react-native'
+import {Animated, Text,View,Easing} from 'react-native'
 
 export default class Animateds extends Component{
     state={
-        fadeAnim:new Animated.Value(0),
+        xPosition:new Animated.Value(1),
     }
 
     componentDidMount(){
-        console.log(this.props)
-        Animated.timing(
-            {
-                toValue:1,
-                duration:10000
-            }.start(0)
-        )
-    }
+                              // 开始执行动画
+        }
 
     render(){
+        Animated.timing(                  // 随时间变化而执行动画
+            this.state.xPosition, {
+                toValue: 100,
+                easing: Easing.back(5),
+                duration: 2000
+              }
+          ).start();  
+        let self = this;
         return(
-            <Animated.View style={{...this.props.style}}>
+            <Animated.View style={{...this.props.style,marginLeft:self.state.xPosition}}>
                 {this.props.children}
             </Animated.View>
         )
