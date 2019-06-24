@@ -38,11 +38,12 @@ const tabNav = createBottomTabNavigator({
     My:{
         screen:My,
         navigationOptions:{
-          tabBarLabel:'我的'
+          tabBarLabel:'我的',
+          header:null
         }
     }
 }, {
-  initialRouteName:'Setting'
+  initialRouteName:'Home'
 }
 
 )
@@ -55,12 +56,6 @@ const App = createAppContainer(
       navigationOptions:{
         gesturesEnabled:true,
       }
-    }
-  },{
-    mode:'screen',
-    navigationOptions:{
-      
-
     }
   })
 );
